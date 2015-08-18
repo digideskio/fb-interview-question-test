@@ -1,0 +1,15 @@
+{
+  "name": "mybench",
+  "version": "1.0.0",
+  "description": "experiment with benchmark",
+  "main": "mybench.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "benchmark": "^1.0.0",
+    "microtime": "^2.0.0"
+  }
+}
