@@ -7,6 +7,34 @@ Benchmark.prototype.setup = function() {
 //    str = "book";
 };
 
+function dejan(str) {
+  var letterMap = {
+    f: 0,
+    a: 1,
+    c: 2,
+    e: 3,
+    b: 4,
+    o: 5,
+    k: 6
+  };
+  var letters = [1, 1, 1, 1, 1, 2, 1];
+  var count = 0;
+  var fb = [1, 1, 1, 1, 1, 2, 1];
+
+  var length = str.length;
+  while (length--) {
+    if (0 === --fb[letterMap[str[length]]]) {
+      fb = fb.map(function(item, idx) {
+        return item + letters[idx];
+      });
+      count++;
+    }
+  }
+
+  return count;
+
+}
+
 function foo(str){
     counts = [0, 0, 0, 0, 0, 0, 0];
     max = 0;
@@ -145,6 +173,9 @@ suite.add('Better Optimal', function() {
 })
 .add('foo4', function() {
   foo4(str);
+})
+.add('dejan', function() {
+  dejan(str);
 })
 // add listeners
 .on('cycle', function(event) {
